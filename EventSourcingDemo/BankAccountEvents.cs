@@ -21,7 +21,7 @@ public class BankAccountEvents
                 return state with { IsOpen = true };
 
             case Deposited c:
-                return state with { Balance = c.Amount };
+                return state with { Balance = c.Amount + state.Balance };
 
             default:
                 throw new ArgumentOutOfRangeException(nameof(evt));
