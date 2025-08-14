@@ -2,7 +2,7 @@ namespace EventSourcingDemo;
 
 public record BankAccount
 {
-    public BankAccount(Guid id)
+    private BankAccount(Guid id)
     {
         Id = id;
     }

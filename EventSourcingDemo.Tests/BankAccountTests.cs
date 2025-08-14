@@ -23,3 +23,10 @@ public class BankAccountTests
     }
 }
 
+public class BankAccountCommands
+{
+    public static BankAccount Handle(OpenAccount command)
+    {
+        return BankAccount.Init(command.Id);
+    }
+}
