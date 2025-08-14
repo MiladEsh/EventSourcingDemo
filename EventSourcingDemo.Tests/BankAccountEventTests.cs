@@ -13,4 +13,3 @@ public class BankAccountEventTests
         Assert.True(result.IsOpen);
     }
 }
-
