@@ -24,5 +24,20 @@ public class BankAccountCommandTests
         var openedAccount = Assert.IsType<OpenedAccount>(evt);
         Assert.Equal(id, openedAccount.Id);
     }
+
+    [Fact]
+    public void BankAccount_Deposit()
+    {
+        var id = Guid.NewGuid();
+        var state = BankAccountEvents
+           .Handle(BankAccount.Init(id), new OpenedAccount(id));
+
+        IEvent evt = BankAccountCommands
+            .Handle(state, new Deposit(id, 100));
+
+        var deposited = Assert.IsType<Deposited>(evt);
+        Assert.Equal(id, deposited.Id);
+        Assert.Equal(100, deposited.Amount);
+    }
 }
 
